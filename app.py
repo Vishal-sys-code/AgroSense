@@ -57,14 +57,12 @@ class CropMLP(nn.Module):
 # ---------------------------
 @st.cache_resource
 def load_objects():
-    # Set device and force map_location to CPU if CUDA is unavailable.
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     map_loc = torch.device("cpu") if not torch.cuda.is_available() else device
 
     cwd = os.getcwd()
     base_dir = os.path.join(cwd, "Saved Models")
     
-    # Load scaler, label encoder, and soil classes.
     with open(os.path.join(base_dir, "scaler.pkl"), "rb") as f:
         scaler = pickle.load(f)
     with open(os.path.join(base_dir, "label_encoder.pkl"), "rb") as f:
@@ -72,19 +70,17 @@ def load_objects():
     with open(os.path.join(base_dir, "soil_classes.pkl"), "rb") as f:
         soil_classes = pickle.load(f)
     
-    # Initialize soil classification model (CustomCNN)
+    # Load soil classification model (CustomCNN)
     soil_model = CustomCNN(num_classes=len(soil_classes))
     soil_model.load_state_dict(torch.load(os.path.join(base_dir, "custom_cnn_model.pth"), map_location=map_loc))
     soil_model.to(device)
     
-    # Initialize crop recommendation model (CropMLP)
-    # The saved model expects 7 numerical features plus one-hot encoded soil type.
-    crop_input_dim = 7 + len(soil_classes)
+    # Load crop recommendation model (CropMLP)
+    crop_input_dim = 7 + len(soil_classes)  # 7 numerical parameters + one-hot soil type.
     crop_model = CropMLP(input_dim=crop_input_dim, hidden_dim=64, output_dim=len(le.classes_))
     crop_model.load_state_dict(torch.load(os.path.join(base_dir, "crop_recommendation_mlp_model.pth"), map_location=map_loc))
     crop_model.to(device)
     
-    # Define image transforms (should match training transforms)
     test_transforms = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
@@ -181,34 +177,43 @@ def integrated_crop_recommendation(soil_image, soil_numerical_values):
 # ---------------------------
 # Streamlit UI
 # ---------------------------
-st.title("AgroSense Crop Recommendation System")
-st.write("Upload a soil image and enter soil parameters to get a crop recommendation.")
-st.write("Please enter 7 parameters: Nitrogen (N), Phosphorus (P), Potassium (K), Temperature (°C), Humidity (%), pH, Rainfall (mm).")
-st.write("Note: For crop decision logic, only nutrients (N, P, K) and pH are used.")
+st.markdown("<h1 style='text-align: center; color: #2C3E50;'>AgroSense Crop Recommendation System</h1>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align: center; color: #34495E;'>Smart Crop Suggestions Based on Soil Nutrients, pH, and Type</h4>", unsafe_allow_html=True)
+st.markdown("---")
 
-uploaded_file = st.file_uploader("Choose a soil image", type=["jpg", "jpeg", "png"])
-if uploaded_file is not None:
-    image_data = uploaded_file.read()
-    soil_image = Image.open(io.BytesIO(image_data))
-    st.image(soil_image, caption="Uploaded Soil Image", use_column_width=True)
-else:
-    st.warning("Please upload a soil image.")
+col1, col2 = st.columns(2)
 
-st.write("Enter soil parameters:")
-N = st.number_input("Nitrogen (N)", value=90)
-P = st.number_input("Phosphorus (P)", value=40)
-K = st.number_input("Potassium (K)", value=40)
-temperature = st.number_input("Temperature (°C)", value=20)
-humidity = st.number_input("Humidity (%)", value=80)
-pH = st.number_input("pH", value=6.5)
-rainfall = st.number_input("Rainfall (mm)", value=200)
+with col1:
+    st.header("Soil Image")
+    uploaded_file = st.file_uploader("Choose a soil image", type=["jpg", "jpeg", "png"])
+    if uploaded_file is not None:
+        image_data = uploaded_file.read()
+        soil_image = Image.open(io.BytesIO(image_data))
+        st.image(soil_image, caption="Uploaded Soil Image", use_column_width=True)
+    else:
+        st.warning("Please upload a soil image.")
 
-if st.button("Recommend Crop"):
+with col2:
+    st.header("Soil Parameters")
+    # Using a form to group the inputs
+    with st.form(key="input_form"):
+        N = st.number_input("Nitrogen (N)", value=90)
+        P = st.number_input("Phosphorus (P)", value=40)
+        K = st.number_input("Potassium (K)", value=40)
+        temperature = st.number_input("Temperature (°C)", value=20)
+        humidity = st.number_input("Humidity (%)", value=80)
+        pH = st.number_input("pH", value=6.5)
+        rainfall = st.number_input("Rainfall (mm)", value=200)
+        submit_button = st.form_submit_button(label="Submit Parameters")
+
+if submit_button:
     if uploaded_file is None:
         st.error("A soil image is required for crop recommendation!")
     else:
+        # Prepare full numerical features in the order: [N, P, K, Temperature, Humidity, pH, Rainfall]
         numerical_values = np.array([[N, P, K, temperature, humidity, pH, rainfall]])
         soil_type, crop_rec, final_input = integrated_crop_recommendation(soil_image, numerical_values)
-        st.write("Final Predicted Soil Type:", soil_type)
-        st.success("Recommended Crop(s): " + ", ".join(crop_rec))
-        st.write("Final Input Vector:", final_input)
+        st.markdown(f"### Final Predicted Soil Type: **{soil_type}**")
+        st.success("### Recommended Crop(s): " + ", ".join(crop_rec))
+        st.markdown("#### Final Input Vector:")
+        st.write(final_input)
