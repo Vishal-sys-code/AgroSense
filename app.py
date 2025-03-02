@@ -10,6 +10,12 @@ import os
 import torch.nn as nn
 from collections import Counter
 
+# Changing the Title and Favicon
+st.set_page_config(
+    page_title="AgroSense Crop Recommendation System",
+    page_icon="🌾"  # You can also provide a path to an image file, e.g., "favicon.png"
+)
+
 # Append "Saved Models" directory to sys.path if needed.
 sys.path.append("Saved Models")
 
