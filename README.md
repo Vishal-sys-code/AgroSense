@@ -118,6 +118,6 @@ AgroSense sets a new benchmark for precision agriculture by:
 - Providing a scalable, user-friendly Streamlit application for practical agricultural deployment.
 
 # Contact
-For further information or collaboration inquiries, please contact:
-Vishal Pandey
+For further information or collaboration inquiries, please contact:<br>
+Vishal Pandey<br>
 Email: pandeyvishal.mlprof@gmail.com
