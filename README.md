@@ -2,6 +2,8 @@
 
 AgroSense is an end-to-end deep learning system for precision agriculture that integrates soil image analysis with quantitative nutrient profiling to provide real-time crop recommendations. Leveraging state-of-the-art convolutional neural networks for soil classification and machine learning models for crop prediction, AgroSense offers a comprehensive decision-support tool for farmers and agronomists.
 
+**Paper Link:** [Agrosense](https://arxiv.org/abs/2509.01344)
+
 ## Table of Contents
 
 - [Overview](#overview)
