@@ -1,126 +1,403 @@
-# AgroSense: Integrated Crop Recommendation System
+# AgroSense v2  
+### Multimodal Agricultural Intelligence for Precision Farming
 
-AgroSense is an end-to-end deep learning system for precision agriculture that integrates soil image analysis with quantitative nutrient profiling to provide real-time crop recommendations. Leveraging state-of-the-art convolutional neural networks for soil classification and machine learning models for crop prediction, AgroSense offers a comprehensive decision-support tool for farmers and agronomists.
+AgroSense v2 is a research-oriented agricultural intelligence framework integrating deep learning, geospatial representations, and multimodal feature fusion for precision agriculture and intelligent crop recommendation.
 
-- **Paper Link:** [https://arxiv.org/abs/2509.01344](https://arxiv.org/abs/2509.01344)
-- **Notebook Link:** [https://www.kaggle.com/code/tmleyncodes/research-work-agrosense-agricultural-ai](https://www.kaggle.com/code/tmleyncodes/research-work-agrosense-agricultural-ai)
+The system combines:
 
-## Table of Contents
+- soil image understanding,
+- nutrient-aware crop recommendation,
+- geospatial agricultural representations,
+- and multimodal learning pipelines
 
-- [Overview](#overview)
-- [Features](#features)
-- [System Architecture](#system-architecture)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Directory Structure](#directory-structure)
-- [Experiments and Results](#experiments-and-results)
-- [Contributions](#contributions)
-- [License](#license)
-- [Contact](#contact)
+to create an extensible AI-driven decision support framework for smart farming applications.
 
-## Overview
+Unlike conventional agricultural recommendation systems that rely solely on tabular nutrient data, AgroSense v2 incorporates visual and spatial representations for improved contextual understanding and scalability toward remote sensing and geospatial intelligence workflows.
 
-Agriculture faces a pressing need to enhance crop yields while sustaining environmental health. Traditional soil testing methods are often slow and expensive, hindering rapid decision-making. AgroSense addresses these challenges by fusing image-based soil classification with real-time nutrient profiling. Our system uses advanced deep learning models to classify soil types from images and integrates these predictions with sensor-based nutrient data to generate optimal crop recommendations.
+---
 
-## Features
-- **Soil Image Classification:** Uses multiple deep learning architectures (Custom CNN, ResNet18, EfficientNet-B0, Vision Transformer) to accurately classify soil types from images.
-- **Nutrient Profiling:** Incorporates key soil parameters including pH, nitrogen (N), phosphorus (P), potassium (K), temperature, humidity, and rainfall.
-- **Data Fusion Pipeline:** Fuses one-hot encoded soil type data with normalized numerical features to form a robust feature vector for crop recommendation.
-- **Crop Recommendation:** Predicts the most suitable crop using a multi-layer perceptron (MLP) and benchmarks it against ensemble methods (XGBoost, LightGBM, TabNet).
-- **Real-time Web Application:** Deployed as a Streamlit app for seamless user interaction and real-time decision support.
+## Research Scope
 
-## System Architecture
+AgroSense v2 explores several interconnected domains within agricultural artificial intelligence:
 
-AgroSense is organized into two main modules:
-1. **Soil Classification Module:**  
-   - **Input:** Digital soil images.  
-   - **Preprocessing:** Images are resized to 224×224 pixels, normalized using ImageNet statistics, and augmented for robustness.  
-   - **Modeling:** Advanced CNN architectures extract hierarchical features to classify soil into distinct types.  
-   - **Output:** The model produces an integer label, which is then one-hot encoded.
-2. **Crop Recommendation Module:**  
-   - **Input:** Normalized soil parameters (pH, N, P, K, temperature, humidity, rainfall) combined with the one-hot encoded soil type.  
-   - **Fusion:** A data integration pipeline concatenates the visual and numerical data into a unified feature vector.  
-   - **Modeling:** A multi-layer perceptron (MLP) predicts crop recommendations, validated against ensemble methods for robust performance.  
-   - **Output:** The system delivers a crop recommendation in real-time.
+- Soil Intelligence
+- Precision Agriculture
+- Geospatial AI
+- Multimodal Learning
+- Remote Sensing
+- Agricultural Decision Systems
+- Deep Learning for Smart Farming
+- Spatial Representation Learning
 
-A high-level block diagram and detailed flowcharts are provided within the paper to illustrate the data fusion and decision-making processes.
+---
 
-## Installation
+## Core System Components
 
-### Prerequisites
+### Soil Intelligence Module
 
-- Python 3.8 or higher
-- [PyTorch](https://pytorch.org/)
-- [Streamlit](https://streamlit.io/)
-- [Torchvision](https://pytorch.org/vision/)
-- [NumPy, Pandas, Matplotlib, Seaborn, scikit-learn](https://scikit-learn.org/)
-- Other dependencies are listed in `requirements.txt`.
+The soil intelligence subsystem performs automated soil understanding using deep convolutional and transformer-based architectures.
 
-### Steps
+#### Implemented Architectures
+- Custom CNN
+- ResNet18
+- EfficientNet-B0
+- Vision Transformer (ViT)
 
-1. **Clone the Repository:**
-     ```bash
-     git clone https://github.com/yourusername/AgroSense.git
-     cd AgroSense
-     ```
-2. **Create and Activate a Virtual Environment (Recommended):**
-   ```bash
-    python -m venv venv
-    # On Windows:
-    venv\Scripts\activate
-    # On Unix or MacOS:
-    source venv/bin/activate
-   ```
-3. **Install Required Packages:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+#### Capabilities
+- Soil type classification
+- Visual feature extraction
+- Agricultural image understanding
+- Encoded soil representation generation
 
-# Usage
+---
 
-## **Running the Streamlit Web App**
-From the project root, execute the following command to launch the web application:
-```bash
-streamlit run app.py
+### Crop Recommendation Engine
+
+The crop recommendation pipeline integrates environmental and learned visual representations to predict optimal crop selections.
+
+#### Input Features
+- Nitrogen (N)
+- Phosphorus (P)
+- Potassium (K)
+- pH
+- Temperature
+- Humidity
+- Rainfall
+- Encoded soil representations
+
+#### Implemented Models
+- Multi-Layer Perceptron (MLP)
+- XGBoost
+- LightGBM
+- TabNet
+
+---
+
+### Geospatial Intelligence Module
+
+AgroSense v2 introduces geospatial agricultural representations for spatial experimentation and remote sensing-oriented workflows.
+
+#### Added Dataset
+```text
+Datasets/normalized_geospatial_patches.npy
 ```
-The app allows users to upload a soil image and input numerical soil parameters. The system then processes the image using deep learning models, fuses the output with normalized nutrient data, and displays the predicted soil type along with the recommended crop.
 
-## Running Experiments
-To reproduce and review experimental results, open and run the provided Jupyter Notebook original_notebook.py, which includes detailed performance analyses and visualizations of both the soil classification and crop recommendation modules.
+#### Research Applications
+- Precision agriculture
+- Spatial crop intelligence
+- Agricultural land analysis
+- Remote sensing experimentation
+- Geospatial feature learning
 
+---
 
-# **Directory Structure**
-```txt
+# System Architecture
+
+## Soil Intelligence Pipeline
+
+```text
+Soil Image
+    ↓
+Image Preprocessing
+    ↓
+Deep Feature Extraction
+    ↓
+Soil Classification
+    ↓
+Encoded Soil Representation
+```
+
+---
+
+## Crop Recommendation Pipeline
+
+```text
+Environmental Features
+        +
+Encoded Soil Features
+        ↓
+Multimodal Feature Fusion
+        ↓
+Recommendation Models
+        ↓
+Crop Recommendation
+```
+
+---
+
+## Geospatial Intelligence Pipeline
+
+```text
+Geospatial Agricultural Patches
+            ↓
+Normalization & Processing
+            ↓
+Spatial Representation Learning
+            ↓
+Agricultural Intelligence Workflows
+```
+
+---
+
+# Research Notebook
+
+```text
+agrosense_v2.ipynb
+```
+
+The v2 notebook contains:
+- multimodal experimentation workflows,
+- geospatial preprocessing pipelines,
+- model experimentation,
+- evaluation workflows,
+- and reproducible research utilities.
+
+## Kaggle Notebook
+https://www.kaggle.com/code/rishabhhhme/agrosense-2-0
+
+---
+
+# Added Pretrained Models
+
+## `best_agrosense2.pth`
+
+Enhanced multimodal AgroSense checkpoint for:
+- agricultural intelligence workflows,
+- multimodal inference,
+- integrated experimentation,
+- and crop recommendation research.
+
+---
+
+## `best_soil_model.pth`
+
+Dedicated soil intelligence checkpoint for:
+- soil classification,
+- agricultural image analysis,
+- and visual soil representation learning.
+
+---
+
+# Repository Structure
+
+```text
 AgroSense/
+│
+├── Datasets/
+│   ├── normalized_geospatial_patches.npy
+│   ├── Soil Image Dataset/
+│   ├── Soil types/
+│   └── ...
+│
 ├── Saved Models/
-│   ├── crop_recommendation_lgb_model.pkl
+│   ├── best_agrosense2.pth
+│   ├── best_soil_model.pth
 │   ├── crop_recommendation_mlp_model.pth
-│   ├── crop_recommendation_tabnet_model.pkl
 │   ├── crop_recommendation_xgb_model.pkl
-│   ├── custom_cnn_model.pth
+│   ├── crop_recommendation_lgb_model.pkl
+│   ├── crop_recommendation_tabnet_model.pkl
 │   ├── efficientnet_b0_model.pth
-│   ├── label_encoder.pkl
-│   ├── prediction_pipeline.py
 │   ├── resnet18_model.pth
-│   ├── scaler.pkl
-│   ├── soil_classes.pkl
-│   └── vit_model.pth
+│   ├── vit_model.pth
+│   └── ...
+│
+├── agrosense_v2.ipynb
 ├── app.py
-├── original_notebook.py
+├── path.py
 ├── requirements.txt
 └── README.md
 ```
 
-# Experiments and Results
-Our experimental results demonstrate state-of-the-art performance for both the soil classification and crop recommendation modules. Soil classification models, including ResNet18 and EfficientNet-B0, achieved test accuracies of up to 100%, while the integrated crop recommendation module attained accuracies in the range of 97-98%. Comparative visualizations (see Figures in the paper) indicate that our integrated approach outperforms traditional tabular-data-based systems by effectively fusing visual and quantitative soil features.
+---
+
+# Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/rishabhh-me/AgroSense.git
+cd AgroSense
+```
+
+---
+
+## Create Virtual Environment
+
+### Windows
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Linux / macOS
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+
+## Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Running the Project
+
+## Launch Streamlit Application
+
+```bash
+streamlit run app.py
+```
+
+The application supports:
+- soil image upload,
+- soil classification,
+- nutrient-aware crop recommendation,
+- and multimodal agricultural inference.
+
+---
+
+# Running Research Experiments
+
+Launch Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+Open:
+
+```text
+agrosense_v2.ipynb
+```
+
+---
+
+# Experimental Focus
+
+Current experimentation includes:
+- soil image classification,
+- multimodal feature fusion,
+- geospatial representation learning,
+- agricultural deep learning,
+- crop recommendation systems,
+- and intelligent agricultural inference.
+
+---
+
+# Research Contributions
+
+AgroSense v2 contributes toward next-generation agricultural AI through:
+
+- multimodal agricultural intelligence,
+- integration of geospatial representations,
+- end-to-end agricultural inference pipelines,
+- scalable experimentation infrastructure,
+- and deployable AI-assisted farming systems.
+
+---
+
+# Technology Stack
+
+## Core Frameworks
+- Python
+- PyTorch
+- Streamlit
+- NumPy
+- Pandas
+- OpenCV
+- Scikit-learn
+
+## Deep Learning
+- CNNs
+- EfficientNet
+- ResNet
+- Vision Transformers
+
+## Research Tooling
+- Jupyter Notebook
+- Kaggle
+- Git LFS
+
+---
+
+# Future Directions
+
+Planned future extensions include:
+- satellite imagery integration,
+- transformer-based agricultural foundation models,
+- explainable agricultural AI,
+- temporal agricultural forecasting,
+- real-time IoT sensor fusion,
+- and distributed training pipelines.
+
+---
+
+# Research References
+
+## Original Research Paper
+https://arxiv.org/abs/2509.01344
+
+## Original AgroSense Notebook
+https://www.kaggle.com/code/tmleyncodes/research-work-agrosense-agricultural-ai
+
+## AgroSense v2 Notebook
+https://www.kaggle.com/code/rishabhhhme/agrosense-2-0
+
+---
 
 # Contributions
-AgroSense sets a new benchmark for precision agriculture by:
-- Integrating soil image analysis with nutrient profiling into a unified, real-time decision support system.
-- Demonstrating high accuracy through advanced deep learning models and robust data fusion techniques.
-- Providing a scalable, user-friendly Streamlit application for practical agricultural deployment.
+
+Contributions, research collaborations, and feature proposals are welcome.
+
+To contribute:
+1. Fork the repository
+2. Create a feature branch
+3. Commit changes
+4. Submit a pull request
+
+---
+
+# License
+
+This project follows the original repository license.
+
+---
+
+# Authors
+
+## Original AgroSense Author
+
+Vishal Pandey  
+Email: pandeyvishal.mlprof@gmail.com
+
+---
+
+## AgroSense v2 Contributor & Maintainer
+
+Rishav Tewari
+
+AI/ML Research Engineer  
+Agricultural AI • Geospatial Intelligence • Deep Learning
+
+GitHub:  
+https://github.com/rishabhh-me
+
+Email:  
+rishavtewari.research@gmail.com
+
+---
 
 # Contact
-For further information or collaboration inquiries, please contact:<br>
-Vishal Pandey<br>
-Email: pandeyvishal.mlprof@gmail.com
+
+For research discussions, collaborations, or project inquiries:
+
+Vishal Pandey  
+pandeyvishal.mlprof@gmail.com
+
+Rishav Tewari  
+rishavtewari.research@gmail.com
