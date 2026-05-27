@@ -1,64 +1,61 @@
-# 🌱 AgroSense v2: Multimodal Agricultural Intelligence Framework for Precision Agriculture
+# AgroSense v2  
+### Multimodal Agricultural Intelligence for Precision Farming
 
-<p align="center">
-  <b>Deep Learning • Geospatial Intelligence • Multimodal AI • Precision Farming</b>
-</p>
+AgroSense v2 is a research-oriented agricultural intelligence framework integrating deep learning, geospatial representations, and multimodal feature fusion for precision agriculture and intelligent crop recommendation.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10+-blue.svg"/>
-  <img src="https://img.shields.io/badge/PyTorch-DeepLearning-red.svg"/>
-  <img src="https://img.shields.io/badge/Streamlit-WebApp-orange.svg"/>
-  <img src="https://img.shields.io/badge/Research-AgriculturalAI-green.svg"/>
-  <img src="https://img.shields.io/badge/Status-Active-success.svg"/>
-</p>
+The system combines:
 
----
-
-# 📌 Overview
-
-AgroSense v2 is a multimodal agricultural intelligence system designed to advance precision agriculture through the integration of deep learning, geospatial representations, and environmental feature fusion.
-
-The framework combines:
-
-- soil image intelligence,
+- soil image understanding,
 - nutrient-aware crop recommendation,
 - geospatial agricultural representations,
 - and multimodal learning pipelines
 
-to deliver an end-to-end AI-driven agricultural decision support ecosystem.
+to create an extensible AI-driven decision support framework for smart farming applications.
 
-Unlike conventional crop recommendation systems that rely solely on tabular nutrient data, AgroSense v2 incorporates visual and spatial representations to improve contextual agricultural understanding and extensibility toward next-generation remote sensing workflows.
+Unlike conventional agricultural recommendation systems that rely solely on tabular nutrient data, AgroSense v2 incorporates visual and spatial representations for improved contextual understanding and scalability toward remote sensing and geospatial intelligence workflows.
 
 ---
 
-# 🚀 Key Features
+## Research Scope
 
-## 🧠 Soil Intelligence Module
-Advanced deep learning models for automated soil classification using soil imagery.
+AgroSense v2 explores several interconnected domains within agricultural artificial intelligence:
 
-### Supported Architectures
+- Soil Intelligence
+- Precision Agriculture
+- Geospatial AI
+- Multimodal Learning
+- Remote Sensing
+- Agricultural Decision Systems
+- Deep Learning for Smart Farming
+- Spatial Representation Learning
+
+---
+
+## Core System Components
+
+### Soil Intelligence Module
+
+The soil intelligence subsystem performs automated soil understanding using deep convolutional and transformer-based architectures.
+
+#### Implemented Architectures
 - Custom CNN
 - ResNet18
 - EfficientNet-B0
 - Vision Transformer (ViT)
 
-### Capabilities
-- Soil type prediction
-- Visual soil understanding
-- Feature extraction for multimodal fusion
-- Agricultural image intelligence
+#### Capabilities
+- Soil type classification
+- Visual feature extraction
+- Agricultural image understanding
+- Encoded soil representation generation
 
 ---
 
-## 🌱 Crop Recommendation Engine
+### Crop Recommendation Engine
 
-A multimodal crop recommendation subsystem integrating:
+The crop recommendation pipeline integrates environmental and learned visual representations to predict optimal crop selections.
 
-- soil classification outputs,
-- environmental parameters,
-- and nutrient profiling.
-
-### Features Used
+#### Input Features
 - Nitrogen (N)
 - Phosphorus (P)
 - Potassium (K)
@@ -68,7 +65,7 @@ A multimodal crop recommendation subsystem integrating:
 - Rainfall
 - Encoded soil representations
 
-### Implemented Models
+#### Implemented Models
 - Multi-Layer Perceptron (MLP)
 - XGBoost
 - LightGBM
@@ -76,70 +73,27 @@ A multimodal crop recommendation subsystem integrating:
 
 ---
 
-## 🛰️ Geospatial Intelligence Integration (v2)
+### Geospatial Intelligence Module
 
-AgroSense v2 introduces geospatial agricultural representations for spatial experimentation and remote sensing-oriented agricultural AI research.
+AgroSense v2 introduces geospatial agricultural representations for spatial experimentation and remote sensing-oriented workflows.
 
-### Added Dataset
+#### Added Dataset
 ```text
 Datasets/normalized_geospatial_patches.npy
 ```
 
-### Applications
+#### Research Applications
 - Precision agriculture
 - Spatial crop intelligence
-- Remote sensing experimentation
 - Agricultural land analysis
+- Remote sensing experimentation
 - Geospatial feature learning
 
 ---
 
-# 📓 AgroSense v2 Research Notebook
+# System Architecture
 
-```text
-agrosense_v2.ipynb
-```
-
-The v2 notebook provides:
-- multimodal experimentation pipelines,
-- geospatial preprocessing workflows,
-- model experimentation,
-- visualization utilities,
-- and reproducible research infrastructure.
-
-### Kaggle Notebook
-https://www.kaggle.com/code/rishabhhhme/agrosense-2-0
-
----
-
-# 🧬 Added Pretrained Models
-
-## `best_agrosense2.pth`
-
-Enhanced multimodal AgroSense checkpoint supporting:
-- integrated agricultural inference,
-- multimodal experimentation,
-- crop recommendation workflows,
-- and agricultural prediction research.
-
----
-
-## `best_soil_model.pth`
-
-Dedicated deep learning checkpoint for:
-- soil image classification,
-- soil intelligence workflows,
-- and agricultural image analysis.
-
----
-
-# 🏗️ System Architecture
-
-AgroSense v2 follows a modular multimodal architecture composed of three primary subsystems.
-
----
-
-## 1️⃣ Soil Intelligence Pipeline
+## Soil Intelligence Pipeline
 
 ```text
 Soil Image
@@ -153,15 +107,9 @@ Soil Classification
 Encoded Soil Representation
 ```
 
-### Preprocessing
-- Image resizing
-- Normalization
-- Feature standardization
-- Data augmentation
-
 ---
 
-## 2️⃣ Crop Recommendation Pipeline
+## Crop Recommendation Pipeline
 
 ```text
 Environmental Features
@@ -170,14 +118,14 @@ Encoded Soil Features
         ↓
 Multimodal Feature Fusion
         ↓
-ML/DL Recommendation Models
+Recommendation Models
         ↓
 Crop Recommendation
 ```
 
 ---
 
-## 3️⃣ Geospatial Intelligence Pipeline
+## Geospatial Intelligence Pipeline
 
 ```text
 Geospatial Agricultural Patches
@@ -191,7 +139,46 @@ Agricultural Intelligence Workflows
 
 ---
 
-# 📂 Repository Structure
+# Research Notebook
+
+```text
+agrosense_v2.ipynb
+```
+
+The v2 notebook contains:
+- multimodal experimentation workflows,
+- geospatial preprocessing pipelines,
+- model experimentation,
+- evaluation workflows,
+- and reproducible research utilities.
+
+## Kaggle Notebook
+https://www.kaggle.com/code/rishabhhhme/agrosense-2-0
+
+---
+
+# Added Pretrained Models
+
+## `best_agrosense2.pth`
+
+Enhanced multimodal AgroSense checkpoint for:
+- agricultural intelligence workflows,
+- multimodal inference,
+- integrated experimentation,
+- and crop recommendation research.
+
+---
+
+## `best_soil_model.pth`
+
+Dedicated soil intelligence checkpoint for:
+- soil classification,
+- agricultural image analysis,
+- and visual soil representation learning.
+
+---
+
+# Repository Structure
 
 ```text
 AgroSense/
@@ -223,7 +210,7 @@ AgroSense/
 
 ---
 
-# ⚙️ Installation
+# Installation
 
 ## Clone Repository
 
@@ -258,7 +245,7 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Running the Project
+# Running the Project
 
 ## Launch Streamlit Application
 
@@ -266,7 +253,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The web application supports:
+The application supports:
 - soil image upload,
 - soil classification,
 - nutrient-aware crop recommendation,
@@ -274,7 +261,7 @@ The web application supports:
 
 ---
 
-# 🔬 Running Research Experiments
+# Running Research Experiments
 
 Launch Jupyter Notebook:
 
@@ -290,54 +277,31 @@ agrosense_v2.ipynb
 
 ---
 
-# 📊 Research Domains
-
-AgroSense v2 explores multiple advanced agricultural AI domains:
-
-- Precision Agriculture
-- Multimodal Learning
-- Soil Intelligence
-- Geospatial AI
-- Remote Sensing
-- Agricultural Decision Systems
-- Deep Learning for Smart Farming
-- Spatial Representation Learning
-
----
-
-# 🧪 Experimental Focus
+# Experimental Focus
 
 Current experimentation includes:
 - soil image classification,
 - multimodal feature fusion,
-- agricultural deep learning,
 - geospatial representation learning,
+- agricultural deep learning,
 - crop recommendation systems,
-- and intelligent agricultural inference pipelines.
+- and intelligent agricultural inference.
 
 ---
 
-# 📈 Research Contributions
+# Research Contributions
 
-## ✅ Multimodal Agricultural Intelligence
-Integrates visual, numerical, and geospatial representations into a unified agricultural AI framework.
+AgroSense v2 contributes toward next-generation agricultural AI through:
 
-## ✅ Geospatial AI Integration
-Introduces spatial agricultural representations into crop intelligence workflows.
-
-## ✅ End-to-End Agricultural Inference
-Provides a deployable Streamlit-based intelligent farming assistant.
-
-## ✅ Scalable Research Infrastructure
-Supports future experimentation in:
-- satellite intelligence,
-- agricultural transformers,
-- explainable AI,
-- and spatial deep learning.
+- multimodal agricultural intelligence,
+- integration of geospatial representations,
+- end-to-end agricultural inference pipelines,
+- scalable experimentation infrastructure,
+- and deployable AI-assisted farming systems.
 
 ---
 
-# 🛠️ Technology Stack
+# Technology Stack
 
 ## Core Frameworks
 - Python
@@ -348,7 +312,7 @@ Supports future experimentation in:
 - OpenCV
 - Scikit-learn
 
-## Deep Learning Architectures
+## Deep Learning
 - CNNs
 - EfficientNet
 - ResNet
@@ -361,21 +325,19 @@ Supports future experimentation in:
 
 ---
 
-# 🌍 Future Directions
+# Future Directions
 
 Planned future extensions include:
-
 - satellite imagery integration,
 - transformer-based agricultural foundation models,
-- explainable crop recommendation systems,
+- explainable agricultural AI,
 - temporal agricultural forecasting,
-- distributed training infrastructure,
 - real-time IoT sensor fusion,
-- and cloud-native deployment pipelines.
+- and distributed training pipelines.
 
 ---
 
-# 📚 Research References
+# Research References
 
 ## Original Research Paper
 https://arxiv.org/abs/2509.01344
@@ -388,67 +350,54 @@ https://www.kaggle.com/code/rishabhhhme/agrosense-2-0
 
 ---
 
-# 🤝 Contributions
+# Contributions
 
 Contributions, research collaborations, and feature proposals are welcome.
 
 To contribute:
 1. Fork the repository
 2. Create a feature branch
-3. Commit your changes
+3. Commit changes
 4. Submit a pull request
 
 ---
 
-# 📄 License
+# License
 
 This project follows the original repository license.
 
 ---
 
-# 👨‍💻 Authors
+# Authors
 
 ## Original AgroSense Author
-### Vishal Pandey
+
+Vishal Pandey  
 Email: pandeyvishal.mlprof@gmail.com
 
 ---
 
 ## AgroSense v2 Contributor & Maintainer
-### Rishav Tewari
 
-AI/ML Research Engineer • Agricultural AI • Geospatial Intelligence • Deep Learning
+Rishav Tewari
 
-GitHub:
+AI/ML Research Engineer  
+Agricultural AI • Geospatial Intelligence • Deep Learning
+
+GitHub:  
 https://github.com/rishabhh-me
 
-Email:
+Email:  
 rishavtewari.research@gmail.com
 
 ---
 
-# 📬 Contact
+# Contact
 
 For research discussions, collaborations, or project inquiries:
 
-### Vishal Pandey
-Email: pandeyvishal.mlprof@gmail.com
+Vishal Pandey  
+pandeyvishal.mlprof@gmail.com
 
-### Rishav Tewari
-Email: rishavtewari.research@gmail.com
-
----
-
-# ⭐ Acknowledgements
-
-Special thanks to:
-- the original AgroSense research contributors,
-- open-source AI communities,
-- geospatial deep learning researchers,
-- and the precision agriculture ecosystem.
-
----
-
-<p align="center">
-  <b>AgroSense v2 — Advancing Precision Agriculture Through Multimodal Artificial Intelligence</b>
-</p>
+Rishav Tewari  
+rishavtewari.research@gmail.com
